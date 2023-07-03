@@ -36,8 +36,7 @@ export default function Filmler(props) {
                         {filmler &&
                             filmler.map((film) => (
                                 <Films>
-                                    {" "}
-                                    <p>{film}</p>{" "}
+                                    <p>{film}</p>
                                 </Films>
                             ))}
                     </AccordionBody>

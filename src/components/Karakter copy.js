@@ -2,12 +2,6 @@
 
 // outsource js libraries
 import React, { useState } from "react";
-import {
-  Accordion,
-  AccordionHeader,
-  AccordionItem,
-  AccordionBody,
-} from "reactstrap";
 
 // internal js libraries
 import Filmler from "./Filmler.js";
@@ -18,12 +12,18 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 
 export default function Karakter({ karakter }) {
+  const [selectedKarakter, setSelectedKarakter] = useState(false);
 
+  function handleAccordionClick() {
+    setSelectedKarakter(!selectedKarakter);
+  }
 
   return (
-    <AccordionItem>
-      <AccordionHeader targetId={karakter.name}>{karakter.name}</AccordionHeader>
-      <AccordionBody accordionId={karakter.name}>
+    <KarakterBilgileri>
+      <button onClick={handleAccordionClick}>
+        {karakter.name}
+      </button>
+      {selectedKarakter && (
         <div>
           <p>height : {karakter.height}</p>
           <p>mass : {karakter.mass}</p>
@@ -35,8 +35,7 @@ export default function Karakter({ karakter }) {
           <p>homeworld :{karakter.homeworld}</p>
           <Filmler filmler={karakter.films} />
         </div>
-      </AccordionBody>
-    </AccordionItem>
-
+      )}
+    </KarakterBilgileri>
   );
 }

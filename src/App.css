@@ -13,13 +13,16 @@ ul {
 }
 
 P {
-  color: white;
-  text-shadow: 1px 1px 5px #000000;
   margin: 20px;
 }
+
+button {
+  transition: .3s ease-out;
+}
+
 button:hover {
   background: #004c8a;
   color: #fdfdfd;
-  font-size: 20px;
 }
+
 /* write your parent styles in here for your App.js */
